@@ -1,10 +1,10 @@
-FROM python:3 as build-env
-
-COPY . /app
-RUN cd /app && python script.py
+FROM python:3.6-slim
 
 
-FROM alpine
-WORKDIR /app
-COPY --from=build-env /app/ /app/script
-ENTRYPOINT /app/script
+
+COPY requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+
+COPY src .
+CMD exec python script.py
+
