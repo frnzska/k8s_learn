@@ -1,6 +1,27 @@
 version: '3'
 services:
   web:
+    depends_on:
+      - db
     build: .
     ports:
-     - "5000:5000"
+     - '5000:5000'
+      # host:container
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    volumes:
+      - ./my_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+#  worker:
+#    build:
+#      context: './backend'
+#      dockerfile: Dockerfile
+#    depends_on:
+#      - db
