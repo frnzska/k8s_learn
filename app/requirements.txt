@@ -1,0 +1,4 @@
+fLask==1.0.2
+pandas
+sqlalchemy
+psycopg2-binary

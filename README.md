@@ -1,16 +1,9 @@
 ### Docker
-
-Test dockerfile:
- 
-`docker build -t flask8s:latest .`
-
-`docker run -d -p 5000:5000 flask8s`
-
-`docker ps` (show containers)
-`docker stop <container_id>`
+Simple Example container for Postgres, Webapp and Worker. 
+Worker loads data into Postgress, Webapp is displaying data. 
 
 with docker compose:
 
-`docker-compose up`
+`docker-compose up --build`
 
 `docker-compose down`
