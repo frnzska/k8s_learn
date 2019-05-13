@@ -1,3 +1,6 @@
 .idea*
 .DS_Store
 my_data
+my_stuff
+
+.cache/
