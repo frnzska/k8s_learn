@@ -1,5 +1,18 @@
 version: '3'
 services:
+  web:
+    depends_on:
+      - db
+      - worker
+    ports:
+     - '5000:5000'
+      # host:container
+    build:
+      context: './app'
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
   db:
     image: postgres
     restart: always
@@ -10,13 +23,16 @@ services:
       - ./my_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+    build:
+      context: './db'
+      dockerfile: Dockerfile
 
   worker:
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
     build:
-      context: './backend'
+      context: './worker'
       dockerfile: Dockerfile
     depends_on:
       - db

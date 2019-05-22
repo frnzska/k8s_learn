@@ -8,7 +8,7 @@ Test dockerfile:
 
 with docker compose:
 
-`docker-compose up`
+`docker-compose up --build`
 
 `docker-compose down`
 
