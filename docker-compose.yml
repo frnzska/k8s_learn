@@ -1,20 +1,11 @@
 version: '3'
 services:
-#  web:
-#    depends_on:
-#      - db
-#    build: .
-#    ports:
-#     - '5000:5000'
-#      # host:container
-#
   db:
     image: postgres
     restart: always
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=dev
     volumes:
       - ./my_data:/var/lib/postgresql/data
     ports:
@@ -24,7 +15,6 @@ services:
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=dev
     build:
       context: './backend'
       dockerfile: Dockerfile
