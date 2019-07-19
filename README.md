@@ -34,5 +34,4 @@ from host:
 postgres://0.0.0.0:5432
 
 ### Kubernetes
-
-first master nodes, than workers join
+TODO
